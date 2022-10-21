@@ -1,0 +1,25 @@
+version: "3.3"
+
+#this override file is used for local development
+
+#docker-compose -f docker/app/docker-compose.yml -f docker/app/docker-compose.override.yml --project-directory . up
+
+#File uses :
+# docker-compose.yml : for production and adding into the portainer stack editor
+# docker-compose.override.yml : for use with developing
+
+services:
+  {{add_name_here}}:
+    volumes:
+      - source: ./docker/configs/main.js
+        target: /app/node/config/main.js
+        type: bind
+
+
+
+#need to bind mount the configs as for development the entire app directory is also bind mounted and config targets dont work
+configs:
+  {{add_name_here}}_config:
+    file: ./docker/configs/main.js
+  {{add_name_here}}_debug_config:
+    file: ./docker/configs/debug.js

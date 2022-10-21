@@ -1,0 +1,28 @@
+version: "3.3"
+
+#this must be run from the base directory so that the full code gets mounted into the containers
+#docker-compose -f docker/app/docker-compose.yml -f docker/app/docker-compose.override.yml --project-directory . up
+
+#File uses :
+# docker-compose.yml : for dev environment cluster and adding into the portainer stack editor
+# docker-compose.override.yml : for use with developing
+
+services:
+  {{add_name_here}}:
+    image: fermionnms/{{add_name_here}}
+    deploy:
+      mode: replicated
+      replicas: 1
+    configs:
+      - source: {{add_name_here}}_config
+        target: /app/node/config/main.js
+        mode: 0444
+      - source: {{add_name_here}}_debug_config
+        target: /app/node/config/debug.js
+        mode: 0444
+
+configs:
+  {{add_name_here}}_config:
+    external: true
+  {{add_name_here}}_debug_config:
+    external: true
