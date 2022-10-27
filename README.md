@@ -43,12 +43,18 @@ npm init
 
 ### install base dependencies
 ```
-npm i dotenv lodash mongoose uuid winston
+npm i dotenv lodash mongoose uuid winston express
+npm i --save-dev mocha chai mongodb-memory-server chai-http
 ```
 
 ### start app
 ```
 npm run local
+```
+
+### test app
+```
+npm run test
 ```
 
 http://localhost:1234/api/v1/test

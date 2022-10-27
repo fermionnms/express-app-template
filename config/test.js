@@ -3,13 +3,12 @@ module.exports = {
       index: true
     },
     controllers: {
-      index: true
+      index: false
     },
     interfaces: {
       index: true
     },
     models: {
-      index: true
+      index: false
     }
   }
-  
